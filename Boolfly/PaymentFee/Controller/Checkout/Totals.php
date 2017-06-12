@@ -43,9 +43,7 @@ class Totals extends \Magento\Framework\App\Action\Action
     }
 
     /**
-     * Trigger to re-calculate the collect Totals
-     *
-     * @return bool
+     * @return $this
      */
     public function execute()
     {
@@ -59,7 +57,8 @@ class Totals extends \Magento\Framework\App\Action\Action
             //Trigger to re-calculate totals
             $payment = $this->_helper->jsonDecode($this->getRequest()->getContent());
             $this->_checkoutSession->getQuote()->getPayment()->setMethod($payment['payment']);
-            $this->quoteRepository->save($quote->collectTotals());
+            $quote->collectTotals();
+            $this->quoteRepository->save($quote);
             //@deprecated save collect totals function
             //$this->_checkoutSession->getQuote()->collectTotals()->save();
 

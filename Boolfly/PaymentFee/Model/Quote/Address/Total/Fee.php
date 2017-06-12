@@ -75,7 +75,8 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         $total->setBaseTotalAmount('base_fee_amount', $fee);
         $total->setGrandTotal($total->getGrandTotal() + $total->getFeeAmount());
         $total->setBaseGrandTotal($total->getBaseGrandTotal() + $total->getBaseFeeAmount());
-
+        $quote->setFeeAmount($fee);
+        $quote->setBaseFeeAmount($fee);
         return $this;
     }
 

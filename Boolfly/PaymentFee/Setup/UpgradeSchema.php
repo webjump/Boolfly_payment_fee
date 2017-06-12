@@ -33,7 +33,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Fee Amount'
@@ -45,12 +45,91 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Base Fee Amount'
                 ]
             );
+
+        //Quote tables
+        $setup->getConnection()
+            ->addColumn(
+                $setup->getTable($quoteTable),
+                'fee_amount',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                    'length' => '10,2',
+                    'default' => 0.00,
+                    'nullable' => true,
+                    'comment' =>'Fee Amount'
+
+                ]
+            );
+
+        $setup->getConnection()
+            ->addColumn(
+                $setup->getTable($quoteTable),
+                'base_fee_amount',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                    'length' => '10,2',
+                    'default' => 0.00,
+                    'nullable' => true,
+                    'comment' =>'Base Fee Amount'
+
+                ]
+            );
+
+        $setup->getConnection()
+            ->addColumn(
+                $setup->getTable($quoteTable),
+                'fee_amount_refunded',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                    'length' => '10,2',
+                    'default' => 0.00,
+                    'nullable' => true,
+                    'comment' =>'Base Fee Amount Refunded'
+                ]
+            );
+        $setup->getConnection()
+            ->addColumn(
+                $setup->getTable($quoteTable),
+                'base_fee_amount_refunded',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                    'length' => '10,2',
+                    'default' => 0.00,
+                    'nullable' => true,
+                    'comment' =>'Base Fee Amount Refunded'
+                ]
+            );
+        $setup->getConnection()
+            ->addColumn(
+                $setup->getTable($quoteTable),
+                'fee_amount_invoiced',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                    'length' => '10,2',
+                    'default' => 0.00,
+                    'nullable' => true,
+                    'comment' =>'Fee Amount Invoiced'
+                ]
+            );
+        $setup->getConnection()
+            ->addColumn(
+                $setup->getTable($quoteTable),
+                'base_fee_amount_invoiced',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                    'length' => '10,2',
+                    'default' => 0.00,
+                    'nullable' => true,
+                    'comment' =>'Base Fee Amount Invoiced'
+                ]
+            );
+
         //Order tables
         $setup->getConnection()
             ->addColumn(
@@ -58,7 +137,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Fee Amount'
@@ -72,7 +151,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Base Fee Amount'
@@ -86,7 +165,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee_amount_refunded',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Base Fee Amount Refunded'
@@ -98,7 +177,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee_amount_refunded',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Base Fee Amount Refunded'
@@ -110,7 +189,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee_amount_invoiced',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Fee Amount Invoiced'
@@ -122,7 +201,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee_amount_invoiced',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Base Fee Amount Invoiced'
@@ -135,7 +214,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Fee Amount'
@@ -148,7 +227,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Base Fee Amount'
@@ -162,7 +241,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Fee Amount'
@@ -175,7 +254,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee_amount',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
+                    'length' => '10,2',
                     'default' => 0.00,
                     'nullable' => true,
                     'comment' =>'Base Fee Amount'

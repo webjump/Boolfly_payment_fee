@@ -30,7 +30,6 @@ class Fee extends AbstractTotal
             $creditmemo->setFeeAmount($feeAmount);
             $creditmemo->setBaseFeeAmount($basefeeAmount);
         }
-        return $this;
 
         return $this;
     }
